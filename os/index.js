@@ -20,5 +20,13 @@ function checkMemory() {
     }
 }
 
-getOSInfo();
+function runIfAdmin(){
+    if (process.env.MODE === 'admin') {
+        getOSInfo();
+    } else {
+        console.log("У вас нет прав для выполнения этой команды.");
+    }
+}
+
+runIfAdmin();
 checkMemory();
