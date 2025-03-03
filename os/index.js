@@ -10,5 +10,15 @@ function getOSInfo() {
     console.log(`Интерфейсы сети:`, os.networkInterfaces());
 }
 
-getOSInfo();
+function checkMemory() {
+    const freeMemoryGB = os.freemem() / (1024 ** 3);
+    console.log(`Свободная память: ${freeMemoryGB.toFixed(2)} GB`);
+    if (freeMemoryGB > 4) {
+        console.log("Свободной памяти достаточно.");
+    } else {
+        console.log("Свободной памяти мало!");
+    }
+}
 
+getOSInfo();
+checkMemory();
